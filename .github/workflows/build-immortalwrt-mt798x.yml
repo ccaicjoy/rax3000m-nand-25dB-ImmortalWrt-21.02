@@ -105,9 +105,9 @@ jobs:
         # 防止包冲突
         rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
         rm -rf feeds/luci/applications/luci-app-mosdns
-        rm -rf feeds/packages/net/{alist,adguardhome,mosdns,smartdns}
         # 替换原版 mosdns 防止 luci 界面编译失败
-        rm -rf ./feeds/packages/net/mosdns && cp -r -f ./feeds/smpackage/mosdns ./feeds/packages/net/mosdns
+        rm -rf ./feeds/packages/net/mosdns
+        cp -r -f ./feeds/smpackage/mosdns ./feeds/packages/net/mosdns
         # 安装 golang 1.23 使用kenzok8源
         rm -rf feeds/packages/lang/golang
         git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
