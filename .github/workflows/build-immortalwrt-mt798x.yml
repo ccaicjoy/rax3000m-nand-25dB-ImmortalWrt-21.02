@@ -117,8 +117,8 @@ jobs:
         rm -rf feeds/packages/net/xray-plugin/
         git clone https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
         git clone https://github.com/xiaorouji/openwrt-passwall-packages package/luci-app-passwall-packages
-        # 重新安装一次 防止依赖错误
-        ./scripts/feeds install -a
+        # 重新安装一次 防止依赖错误 强制override保证版本比immortalwrt官方新
+        ./scripts/feeds install -a -f
         chmod +x $GITHUB_WORKSPACE/$DIY_SH && $GITHUB_WORKSPACE/$DIY_SH
 
     - name: 导入补丁和配置
